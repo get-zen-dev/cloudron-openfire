@@ -2,7 +2,7 @@ name: build-openfire
 on: push
 
 env:
-  OPENFIRE_VERSION: v4.7.1
+  OPENFIRE_VERSION: v4.7.3
 
 # Secrets requirements (set at 'Secrets' setting of Github repository)
 #
