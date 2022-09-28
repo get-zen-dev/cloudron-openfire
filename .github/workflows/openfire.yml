@@ -48,6 +48,9 @@ jobs:
     needs: build
     runs-on: ubuntu-18.04
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Get the build from cache
         uses: actions/cache@v3
         with:
@@ -56,6 +59,10 @@ jobs:
             ./distribution/target/distribution-base
             ./Dockerfile
           key: distribution-base-${{ env.OPENFIRE_VERSION }}
+
+      - name: Patch the Dockerfile
+        run: |
+          patch -p0 < Dockerfile.patch
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
