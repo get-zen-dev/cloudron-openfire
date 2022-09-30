@@ -1,0 +1,16 @@
+--- xmppserver/src/main/java/org/jivesoftware/util/JiveGlobals.java	2022-09-29 17:10:14.799630464 +0400
++++ xmppserver/src/main/java/org/jivesoftware/util/JiveGlobals.java	2022-09-29 17:12:31.511167869 +0400
+@@ -287,10 +287,10 @@
+         if (!mh.exists()) {
+             Log.error("Error - the specified home directory does not exist (" + pathname + ")");
+         }
+-        else if (!mh.canRead() || !mh.canWrite()) {
++        else if (!mh.canRead()) {
+                 Log.error("Error - the user running this application can not read " +
+-                        "and write to the specified home directory (" + pathname + "). " +
+-                        "Please grant the executing user read and write permissions.");
++                        "to the specified home directory (" + pathname + "). " +
++                        "Please grant the executing user read permissions.");
+         }
+         else {
+             home = pathname;

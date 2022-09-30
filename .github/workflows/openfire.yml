@@ -16,11 +16,16 @@ jobs:
     name: Build Openfire
     runs-on: ubuntu-18.04
     steps:
-      - name: Checkout
+      - name: Checkout Openfire
         uses: actions/checkout@v3
         with:
           repository: igniterealtime/Openfire
           ref: ${{ env.OPENFIRE_VERSION }}
+
+      - name: Checkout this repo
+        uses: actions/checkout@v3
+        with:
+          path: patches
 
       - name: Set up JDK 11 for x64
         uses: actions/setup-java@v3
@@ -29,6 +34,10 @@ jobs:
           cache: maven
           distribution: adopt
           java-version: '11'
+
+      - name: Patch files
+        run: |
+          patch -p0 < patches/JiveGlobals.java.patch
 
       - name: Run build
         run: |
@@ -60,9 +69,10 @@ jobs:
             ./Dockerfile
           key: distribution-base-${{ env.OPENFIRE_VERSION }}
 
-      - name: Patch the Dockerfile
+      - name: Patch files
         run: |
           patch -p0 < Dockerfile.patch
+          patch -p0 < entrypoint.sh.patch
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
