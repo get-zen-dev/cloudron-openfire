@@ -50,7 +50,7 @@ jobs:
             ./build/docker/entrypoint.sh
             ./distribution/target/distribution-base
             ./Dockerfile
-          key: distribution-base-${{ env.OPENFIRE_VERSION }}
+          key: distribution-base-${{ env.OPENFIRE_VERSION }}-${{ github.run_id }}
 
   build_and_push_docker_image:
     name: Build and Push Docker Image
@@ -67,7 +67,7 @@ jobs:
             ./build/docker/entrypoint.sh
             ./distribution/target/distribution-base
             ./Dockerfile
-          key: distribution-base-${{ env.OPENFIRE_VERSION }}
+          key: distribution-base-${{ env.OPENFIRE_VERSION }}-${{ github.run_id }}
 
       - name: Patch files
         run: |
