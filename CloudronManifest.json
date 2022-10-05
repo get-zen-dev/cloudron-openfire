@@ -91,7 +91,8 @@
   },
   "memoryLimit": 1073741824,
   "addons": {
-    "localstorage": {}
+    "localstorage": {},
+    "turn": {}
   },
   "manifestVersion": 2,
   "website": "http://igniterealtime.org/projects/openfire/"
