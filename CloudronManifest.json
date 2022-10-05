@@ -1,0 +1,98 @@
+{
+  "version": "4.7.3",
+  "upstreamVersion": "4.7.3",
+  "author": "Ignite Realtime <>",
+  "description": "Openfire is a real time collaboration (RTC) server licensed under the Open Source Apache License",
+  "forumUrl": "https://discourse.igniterealtime.org/",
+  "title": "Openfire",
+  "logPaths": [
+    "/run/log/openfire.log"
+  ],
+  "httpPort": 9090,
+  "tcpPorts": {
+     "OPENFIRE_CLIENT_TO_SERVER_PORT_1": {
+       "title": "Client to server",
+       "description": "The standard port for clients to connect to the server",
+       "defaultValue": 5222,
+       "containerPort": 5222
+     },
+     "OPENFIRE_CLIENT_TO_SERVER_PORT_2": {
+       "title": "Client to server SSL/TLS",
+       "description": "The port used for clients to connect to the server using the old SSL/TLS method",
+       "defaultValue": 5223,
+       "containerPort": 5223
+     },
+     "OPENFIRE_CONNECTION_MANAGER_PORT_1": {
+       "title": "Connection manager",
+       "description": "The port used for connection managers to connect to the server",
+       "defaultValue": 5262,
+       "containerPort": 5262
+     },
+     "OPENFIRE_CONNECTION_MANAGER_PORT_2": {
+       "title": "Connection manager SSL/TLS",
+       "description": "The port used for connection managers to the server using the old SSL/TLS method",
+       "defaultValue": 5263,
+       "containerPort": 5263
+     },
+     "OPENFIRE_SERVER_TO_SERVER_PORT_1": {
+       "title": "Server to server",
+       "description": "The port used for remote servers to connect to this server. On this port plain-text connections are established",
+       "defaultValue": 5269,
+       "containerPort": 5269
+     },
+     "OPENFIRE_SERVER_TO_SERVER_PORT_2": {
+       "title": "Server to server encrypted",
+       "description": "The port used for remote servers to connect to this server. Connections established on this port are established using a pre-encrypted connection",
+       "defaultValue": 5270,
+       "containerPort": 5270
+     },
+     "OPENFIRE_EXTERNAL_COMPONENTS_PORT_1": {
+       "title": "External components",
+       "description": "The port used for external components to connect to the server. On this port plain-text connections are established",
+       "defaultValue": 5275,
+       "containerPort": 5275
+     },
+     "OPENFIRE_EXTERNAL_COMPONENTS_PORT_2": {
+       "title": "External components SSL/TLS",
+       "description": "The port used for external components to the server using the old SSL/TLS method",
+       "defaultValue": 5276,
+       "containerPort": 5276
+     },
+     "OPENFIRE_HTTP_BINDING_PORT_1": {
+       "title": "HTTP Binding",
+       "description": "The port used for unsecured HTTP client connections",
+       "defaultValue": 7070,
+       "containerPort": 7070
+     },
+     "OPENFIRE_HTTP_BINDING_PORT_2": {
+       "title": "HTTP Binding secured",
+       "description": "The port used for secured HTTP client connections",
+       "defaultValue": 7443,
+       "containerPort": 7443
+     },
+     "OPENFIRE_FILE_TRANSFER_PROXY_PORT_1": {
+       "title": "File transfer proxy",
+       "description": "The port used for the proxy service that allows file transfers to occur between two entities on the XMPP network",
+       "defaultValue": 7777,
+       "containerPort": 7777
+     },
+     "OPENFIRE_ADMIN_PORT_1": {
+       "title": "HTTP Admin port",
+       "description": "The port used for unsecured Admin Console access",
+       "defaultValue": 9090,
+       "containerPort": 9090
+     },
+     "OPENFIRE_ADMIN_PORT_2": {
+       "title": "HTTPS Admin port secured",
+       "description": "The port used for secured Admin Console access",
+       "defaultValue": 9091,
+       "containerPort": 9091
+     }
+  },
+  "memoryLimit": 1073741824,
+  "addons": {
+    "localstorage": {}
+  },
+  "manifestVersion": 2,
+  "website": "http://igniterealtime.org/projects/openfire/"
+}
