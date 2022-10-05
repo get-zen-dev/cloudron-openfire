@@ -13,10 +13,10 @@ Resulting Docker is available at https://hub.docker.com/r/getzendev/openfire
 # Setting up Cloudron app
 
 ```
-sudo npm install -g cloudron
-cloudron login my.example.com
+sudo npm install cloudron
+npx cloudron login my.domain.com
 wget https://raw.githubusercontent.com/GetZenDev/build-openfire-docker/main/CloudronManifest.json
-cloudron install --image getzendev/openfire:latest
+npx cloudron install --image getzendev/openfire:latest
 ```
 
 Then setup the app from the web interface.
