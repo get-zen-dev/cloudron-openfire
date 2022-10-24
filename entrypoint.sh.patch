@@ -1,5 +1,5 @@
---- build/docker/entrypoint.sh	2022-04-04 11:02:54.114344560 +0400
-+++ build/docker/entrypoint.sh	2022-09-29 14:44:57.597409223 +0400
+--- build/docker/entrypoint.sh  2022-04-04 11:02:54.114344560 +0400
++++ build/docker/entrypoint.sh  2022-09-29 14:44:57.597409223 +0400
 @@ -1,13 +1,6 @@
  #!/bin/bash
  set -e
@@ -13,6 +13,15 @@
 -
  initialize_data_dir() {
    echo "Initializing ${OPENFIRE_DATA_DIR}..."
+ 
+@@ -21,7 +14,7 @@
+     sudo -HEu ${OPENFIRE_USER} cp -a ${OPENFIRE_DIR}/plugins_org ${OPENFIRE_DATA_DIR}/plugins
+     sudo -HEu ${OPENFIRE_USER} cp -a ${OPENFIRE_DIR}/resources/security_org ${OPENFIRE_DATA_DIR}/conf/security
+   fi
+-  sudo -HEu ${OPENFIRE_USER} mkdir -p ${OPENFIRE_DATA_DIR}/{plugins,embedded-db}
++  sudo -HEu ${OPENFIRE_USER} mkdir -p ${OPENFIRE_DATA_DIR}/{plugins,embedded-db,monitoring}
+   sudo -HEu ${OPENFIRE_USER} rm -rf ${OPENFIRE_DATA_DIR}/plugins/admin
+   sudo -HEu ${OPENFIRE_USER} ln -sf ${OPENFIRE_DIR}/plugins_org/admin ${OPENFIRE_DATA_DIR}/plugins/admin
  
 @@ -38,8 +31,6 @@
    mkdir -p ${OPENFIRE_LOG_DIR}

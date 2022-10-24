@@ -31,8 +31,7 @@
 +    && ln -s ${OPENFIRE_DATA_DIR}/conf/security ${OPENFIRE_DIR}/resources/ \
 +    && ln -s ${OPENFIRE_DATA_DIR}/embedded-db ${OPENFIRE_DIR}/ \
 +    && ln -sf ${OPENFIRE_LOG_DIR} ${OPENFIRE_DIR}/logs
-+    && ln -sf ${OPENFIRE_LOG_DIR} ${OPENFIRE_DIR}/monitoring
-
++    && ln -s ${OPENFIRE_DATA_DIR}/monitoring ${OPENFIRE_DIR}/
  
  LABEL maintainer="florian.kinder@fankserver.com"
 -WORKDIR /usr/local/openfire
